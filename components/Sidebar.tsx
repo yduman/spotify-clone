@@ -1,4 +1,4 @@
-import { Box } from "@chakra-ui/layout";
+import { Box, Divider } from "@chakra-ui/layout";
 import { MUSIC_PLAYER_HEIGHT } from "../utils/constants";
 import Menu from "./Menu";
 import Playlists from "./Playlists";
@@ -16,7 +16,21 @@ const Sidebar = () => {
         <Box marginBottom="20px">
           <Menu />
         </Box>
-        <Box height="calc(100% - 210px)" overflowY="auto" paddingY="20px">
+        <Box paddingX="20px" paddingY="20px">
+          <Divider color="gray.800" />
+        </Box>
+        <Box
+          height="calc(100% - 210px)"
+          overflowY="auto"
+          paddingY="20px"
+          sx={{
+            "&::-webkit-scrollbar": {
+              display: "none",
+            },
+            "&::-ms-overflow-style": "none",
+            "scrollbar-width": "none",
+          }}
+        >
           <Playlists />
         </Box>
       </Box>
