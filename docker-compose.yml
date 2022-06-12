@@ -1,0 +1,34 @@
+version: "3.8"
+services:
+  db:
+    container_name: spotify-db
+    image: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=my-db
+    volumes:
+      - postgresdata:/var/lib/postgresql/data
+    networks:
+      - pgnetwork
+  pgadmin:
+    container_name: spotify-pgadmin
+    image: dpage/pgadmin4
+    restart: always
+    ports:
+      - "5050:80"
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=test@test.com
+      - PGADMIN_DEFAULT_PASSWORD=test
+    volumes:
+      - pgadmindata:/var/lib/pgadmin
+    networks:
+      - pgnetwork
+volumes:
+  postgresdata:
+  pgadmindata:
+networks:
+  pgnetwork:
