@@ -7,9 +7,13 @@ import { colorTheme } from "../utils/theme";
 const MyApp = ({ Component, pageProps }) => {
   return (
     <ChakraProvider theme={colorTheme}>
-      <Layout>
+      {Component.isAuthPage ? (
         <Component {...pageProps} />
-      </Layout>
+      ) : (
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      )}
     </ChakraProvider>
   );
 };
