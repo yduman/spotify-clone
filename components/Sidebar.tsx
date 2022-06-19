@@ -23,7 +23,7 @@ const Sidebar = () => {
           height="calc(100% - 210px)"
           overflowY="auto"
           paddingY="20px"
-          sx={{
+          css={{
             "&::-webkit-scrollbar": {
               display: "none",
             },
